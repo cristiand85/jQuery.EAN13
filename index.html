@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Jquery.EAN13 : A jQuery Plugin for generating EAN13-barcodes" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Jquery.EAN13</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/joushx/jQuery.EAN13">View on GitHub</a>
+
+          <h1 id="project_title">Jquery.EAN13</h1>
+          <h2 id="project_tagline">A jQuery Plugin for generating EAN13-barcodes</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/joushx/jQuery.EAN13/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/joushx/jQuery.EAN13/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>jQuery.EAN13</h1>
+
+<p>jQuery.EAN13 is a lightweight (~2kb) jQuery plugin for in-place generation of EAN-13 barcodes.</p>
+
+<p><img src="https://raw.github.com/joushx/jQuery.EAN13/master/barcode.png"></p>
+
+<h2>Usage</h2>
+
+<h3>Include Plugin</h3>
+
+<p>Insert the following code into the <code>head</code> section of you page:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"jQuery.EAN13.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</pre></div>
+
+<p>Make sure to include this AFTER the jQuery-library.</p>
+
+<h3>Insert Canvas</h3>
+
+<p>At the place where you want to insert the barcode insert this code:</p>
+
+<div class="highlight"><pre><span class="nt">&lt;canvas</span> <span class="na">id=</span><span class="s">"ean"</span> <span class="na">width=</span><span class="s">"200"</span> <span class="na">height=</span><span class="s">"100"</span><span class="nt">&gt;</span>
+    Your browser does not support canvas-elements.
+<span class="nt">&lt;/canvas&gt;</span>
+</pre></div>
+
+<p>You may change the dimensions of the element. The barcode will automatically be resized.</p>
+
+<h3>Print barcode</h3>
+
+<p>For printing the code of the provided number with the number under it, just use the following code:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">);</span>
+</pre></div>
+
+<h2>Options</h2>
+
+<h3>Without number</h3>
+
+<p>For only printing the barcode use the code below:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">number</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>Prefix</h3>
+
+<p>Set the <code>prefix</code> option to false to not print the country prefix:</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">prefix</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>Color</h3>
+
+<p>Set the <code>color</code> option to a color to print the barcode with it.</p>
+
+<h4>Hex-value</h4>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s2">"#f00"</span>
+<span class="p">});</span>
+</pre></div>
+
+<h4>RGB-value</h4>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s2">"rgb(255,0,0)"</span>
+<span class="p">});</span>
+</pre></div>
+
+<h4>RGBA-value</h4>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">color</span><span class="o">:</span> <span class="s2">"rgb(255,0,0,0.2)"</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>Callbacks</h2>
+
+<h3>onValid</h3>
+
+<p>When the code is valid, the <code>onValid</code> callback gets executed.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">onValid</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// do</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>onInvalid</h3>
+
+<p>When the code is invalid, the <code>onInvalid</code> callback gets executed.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">onInvalid</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// do</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<h3>onError</h3>
+
+<p>When the plugin (canvas-element) is not supported by the browser <code>onError</code> gets called.</p>
+
+<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s2">"#ean"</span><span class="p">).</span><span class="nx">EAN13</span><span class="p">(</span><span class="s2">"9002236311036"</span><span class="p">,</span> <span class="p">{</span>
+    <span class="nx">onError</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>
+        <span class="c1">// do</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</pre></div>
+
+<h2>Author</h2>
+
+<p>Johannes Mittendorfer (<a href="http://jmittendorfer.hostingsociety.com">http://jmittendorfer.hostingsociety.com</a>)</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Jquery.EAN13 maintained by <a href="https://github.com/joushx">joushx</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
